@@ -50,12 +50,41 @@ The primary entry point, providing immediate feedback and planning.
 * **Global List:** Consolidated view (e.g., "750g Tomatoes" or "1.5 lbs Tomatoes").
 * **Meal-by-Meal View:** Ingredients grouped by recipe.
 * **User Control:** Users can tap an ingredient to toggle its unit manually if they prefer to buy "1 bag" instead of "500g."
+
+### F. Smart Onboarding Flow
+A 4-step guided setup to initialize the SwiftData user profile and the Recommendation Engine.
+
+#### 1. The "Health Filter" (Constraints)
+* **Allergies:** Common triggers (Nuts, Dairy, Gluten, Shellfish).
+* **Dietary Preferences:** Toggles for Vegan, Vegetarian, Pescatarian, or "No Restrictions."
+
+#### 2. The "Goal Setter" (Nutrient Focus)
+* **Multi-select list of concerns:** (e.g., "Lack of Energy" → B12, "Bone Health" → Vitamin D/Calcium, "Anemia" → Iron).
+* **Benefit:** This sets the priority weights for the Bridge Meal suggestions.
+
+#### 3. The "Quick Start" Pantry
+A curated list of "Pantry Staples." Users tap to check off items they already own (Olive oil, Rice, Salt, Flour).
+* **Benefit:** Prevents these items from cluttering the first generated shopping list.
+
+#### 4. The "Habit" Prerecord
+"What do you usually eat for Breakfast/Lunch?"
+* **Users can select common templates** (e.g., "Oatmeal," "Two Eggs & Toast") to pre-populate their Library as "Quick-Log" items.
+
+#### 5. Household Size
+* **Onboarding ends by asking:** "Who are we cooking for?" (1, 2, or 4+ people).
+
+#### 6. The "Success" Screen (The Result)
+* **The "First Bridge" Reveal:** The app displays: "Based on your feeling (Tired) and your Pantry (Eggs, Spinach), here is your first Bridge Meal: The 5-Minute Power Omelette."
+* **Action:** Buttons to "Cook This Now" (Log it) or "Add Ingredients to Shopping List."
+
 ---
 
 ## 3. Configuration & Personalization
 * **Unit System Toggle:** Choose between Metric, Imperial (US), or Imperial (UK).
 * **Deficiency Focus:** Users toggle specific vitamins/minerals (e.g., Iron, Vitamin D, B12) to prioritize in the Recommendation Engine.
 * **Allergies & Tastes:** Strict exclusion of allergens and a "like/dislike" weighting for automated suggestions.
+* **Localized Defaults:** The app automatically detects the iOS locale to set Unit Systems (Metric vs. Imperial) and Currency. No user input is required unless they wish to override in Settings.
+* **Household Scaling:** Onboarding ends by asking: "Who are we cooking for?" (1, 2, or 4+ people).
 
 ---
 
@@ -86,6 +115,11 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 * **Gap Analysis:** Queries **SwiftData** for the last 7 days of logs.
 * **Recommendation Strategy:** Prioritizes **Spoonacular API** requests based on the user's `Deficiency Focus` toggles.
 
+### 4. The Onboarding "Win" Logic
+* **Step 1-5:** Data is written to `UserProfile` in SwiftData.
+* **Step 6 (Success):** The app triggers an immediate POST to the Spoonacular API using the `includeIngredients` (from Pantry) and `targetNutrients` (from Symptoms) parameters.
+* **Storage:** This first "Bridge Meal" is saved to the `Discovery Lab` so the user doesn't lose it.
+
 ---
 
 ## 6. Data Model (SwiftData Schema)
@@ -95,8 +129,9 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 | **Meal** | `timestamp`, `photoData`, `isFavorite: Bool`, `Relationship: [Ingredient]` |
 | **Recipe** | `name`, `yield: Int`, `nutritionalStrategyTags`, `Relationship: [Ingredient]` |
 | **Ingredient** | `name`, `rawInputUnit: String`, `standardizedWeightGrams: Double`, `displayAmount: Double`, `displayUnit: String` |
-| **PantryItem** | `name`, `isInStock: Bool`, `lastUpdated` |
-| **UserSetting** | `preferredUnitSystem: UnitEnum`, `householdSize: Int`, `deficiencyFocus: [Nutrient]` |
+| **PantryItem** | `name`, `isStaple: Bool`, `isInStock: Bool`, `lastUpdated` |
+| **UserSetting** | `preferredUnitSystem: UnitEnum`, `householdSize: Int`, `deficiencyFocus: [Nutrient]`, `symptoms: [SymptomEnum]` |
+| **OnboardingResult** | `firstSuggestedMealID`, `dateGenerated` |
 
 ---
 
@@ -108,4 +143,4 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 * **v1.4.0:** Removed Precision Logic; Added Pantry modules.
 * **v1.5.0:** Restored Recipe Promotion, Scan-to-Recipe, and Scaling logic; Refined Dashboard (<5 / ≥5 rule).
 * **v1.6.0:** Added Global Unit Localization and Density-Aware Conversion to handle Metric/Imperial differences.
-    
+* **v1.7.0:** Added Smart Onboarding Flow with Symptom Mapping and Immediate Success (First Bridge Meal).
