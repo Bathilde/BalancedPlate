@@ -306,6 +306,36 @@
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Recipe Ideas for You" } }
       }
+    },
+    "shopping.viewmode.global" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Global" } }
+      }
+    },
+    "shopping.viewmode.mealbymeal" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "By Meal" } }
+      }
+    },
+    "shopping.filter.hidepantry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hide Pantry Items" } }
+      }
+    },
+    "shopping.filter.showpantry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Show Pantry Items" } }
+      }
+    },
+    "shopping.empty.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your shopping list is empty. Add some Bridge Meals!" } }
+      }
     }
   },
   "version" : "1.0"
