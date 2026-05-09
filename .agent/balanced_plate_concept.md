@@ -30,6 +30,10 @@ The primary entry point, providing immediate feedback and planning.
 * **Dual-View Grocery List:** * **Global List:** Consolidated view of all ingredients required (e.g., "6 Tomatoes").
     * **Meal-by-Meal View:** Breakdown of ingredients by specific recipe; users can adjust quantities per meal.
 * **Pantry Filtering:** Items flagged in "The Pantry" are automatically hidden from the "To Buy" section.
+* **Unit Localization:** The shopping list automatically converts recipe units based on the user's region.
+    * **Metric:** Grams, Kilograms, Milliliters, Liters.
+    * **Imperial/US:** Cups, Ounces, Pounds, Teaspoons/Tablespoons.
+**Density-Aware Conversion:** Uses API data to ensure that "1 cup" is converted to the correct weight in grams based on the specific ingredient (e.g., Lead vs. Feathers logic).
 
 ### C. The "Store-Side" Assistant (In-Scan Action)
 * **Scan-to-Recipe:** Snapshot a vegetable in-store (e.g., Romanesco broccoli). The app triggers recipe ideas that:
@@ -42,9 +46,14 @@ The primary entry point, providing immediate feedback and planning.
 * **Rainbow Haptics:** A celebration when a user hits all core nutrient targets for the week.
 * **Variety Badges:** Milestones for food diversity (e.g., "10 Different Vegetables this Week").
 
+### E. The Dual-View Grocery List (Updated)
+* **Global List:** Consolidated view (e.g., "750g Tomatoes" or "1.5 lbs Tomatoes").
+* **Meal-by-Meal View:** Ingredients grouped by recipe.
+* **User Control:** Users can tap an ingredient to toggle its unit manually if they prefer to buy "1 bag" instead of "500g."
 ---
 
 ## 3. Configuration & Personalization
+* **Unit System Toggle:** Choose between Metric, Imperial (US), or Imperial (UK).
 * **Deficiency Focus:** Users toggle specific vitamins/minerals (e.g., Iron, Vitamin D, B12) to prioritize in the Recommendation Engine.
 * **Allergies & Tastes:** Strict exclusion of allergens and a "like/dislike" weighting for automated suggestions.
 
@@ -68,6 +77,8 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 * **NLP Processing:** Strings are sent to **Edamam API** to convert "Natural Language" to nutrient JSON.
 
 ### 2. Logic Layer (SwiftData)
+* **Unit Manager:** A Swift service that checks the user's UnitSystem preference.
+* **Conversion:** If the preference is Metric but the input is Cups, the app displays the API-provided gram weight.
 * **Local Persistence:** All meals, recipes, and nutrients are stored in the app's private SQLite database via SwiftData.
 * **HealthKit Integration (Optional):** If authorized, data mirrors to `HKHealthStore`.
 
@@ -83,8 +94,9 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 | :--- | :--- |
 | **Meal** | `timestamp`, `photoData`, `isFavorite: Bool`, `Relationship: [Ingredient]` |
 | **Recipe** | `name`, `yield: Int`, `nutritionalStrategyTags`, `Relationship: [Ingredient]` |
-| **Ingredient** | `name`, `quantityValue`, `quantityUnit`, `nutrientJSON` |
+| **Ingredient** | `name`, `rawInputUnit: String`, `standardizedWeightGrams: Double`, `displayAmount: Double`, `displayUnit: String` |
 | **PantryItem** | `name`, `isInStock: Bool`, `lastUpdated` |
+| **UserSetting** | `preferredUnitSystem: UnitEnum`, `householdSize: Int`, `deficiencyFocus: [Nutrient]` |
 
 ---
 
@@ -95,3 +107,5 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 * **v1.3.0:** Added Recipe Engine and Meal-driven Shopping List integration.
 * **v1.4.0:** Removed Precision Logic; Added Pantry modules.
 * **v1.5.0:** Restored Recipe Promotion, Scan-to-Recipe, and Scaling logic; Refined Dashboard (<5 / ≥5 rule).
+* **v1.6.0:** Added Global Unit Localization and Density-Aware Conversion to handle Metric/Imperial differences.
+    
