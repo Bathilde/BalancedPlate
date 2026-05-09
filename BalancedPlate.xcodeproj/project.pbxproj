@@ -6,11 +6,51 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		360560612FAFA6D1002D98C5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360560602FAFA6D1002D98C5 /* WidgetKit.framework */; };
+		360560632FAFA6D1002D98C5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 360560622FAFA6D1002D98C5 /* SwiftUI.framework */; };
+		360560742FAFA6D2002D98C5 /* BalancedPlateWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 3605605E2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		360560722FAFA6D2002D98C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 364BE4182FAF868E0079AA26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3605605D2FAFA6D1002D98C5;
+			remoteInfo = BalancedPlateWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		360560752FAFA6D2002D98C5 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				360560742FAFA6D2002D98C5 /* BalancedPlateWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		3605605E2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BalancedPlateWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		360560602FAFA6D1002D98C5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		360560622FAFA6D1002D98C5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		364BE4202FAF868E0079AA26 /* BalancedPlate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BalancedPlate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		360560792FAFA6D2002D98C5 /* Exceptions for "BalancedPlateWidget" folder in "BalancedPlateWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 3605605D2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension */;
+		};
 		364BE42D2FAF868F0079AA26 /* Exceptions for "BalancedPlate" folder in "BalancedPlate" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -21,6 +61,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		360560642FAFA6D1002D98C5 /* BalancedPlateWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				360560792FAFA6D2002D98C5 /* Exceptions for "BalancedPlateWidget" folder in "BalancedPlateWidgetExtension" target */,
+			);
+			path = BalancedPlateWidget;
+			sourceTree = "<group>";
+		};
 		364BE4222FAF868E0079AA26 /* BalancedPlate */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +80,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3605605B2FAFA6D1002D98C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				360560632FAFA6D1002D98C5 /* SwiftUI.framework in Frameworks */,
+				360560612FAFA6D1002D98C5 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		364BE41D2FAF868E0079AA26 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -42,10 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3605605F2FAFA6D1002D98C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				360560602FAFA6D1002D98C5 /* WidgetKit.framework */,
+				360560622FAFA6D1002D98C5 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		364BE4172FAF868E0079AA26 = {
 			isa = PBXGroup;
 			children = (
 				364BE4222FAF868E0079AA26 /* BalancedPlate */,
+				360560642FAFA6D1002D98C5 /* BalancedPlateWidget */,
+				3605605F2FAFA6D1002D98C5 /* Frameworks */,
 				364BE4212FAF868E0079AA26 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				364BE4202FAF868E0079AA26 /* BalancedPlate.app */,
+				3605605E2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +130,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3605605D2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 360560782FAFA6D2002D98C5 /* Build configuration list for PBXNativeTarget "BalancedPlateWidgetExtension" */;
+			buildPhases = (
+				3605605A2FAFA6D1002D98C5 /* Sources */,
+				3605605B2FAFA6D1002D98C5 /* Frameworks */,
+				3605605C2FAFA6D1002D98C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				360560642FAFA6D1002D98C5 /* BalancedPlateWidget */,
+			);
+			name = BalancedPlateWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = BalancedPlateWidgetExtension;
+			productReference = 3605605E2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		364BE41F2FAF868E0079AA26 /* BalancedPlate */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 364BE42E2FAF868F0079AA26 /* Build configuration list for PBXNativeTarget "BalancedPlate" */;
@@ -68,10 +159,12 @@
 				364BE41C2FAF868E0079AA26 /* Sources */,
 				364BE41D2FAF868E0079AA26 /* Frameworks */,
 				364BE41E2FAF868E0079AA26 /* Resources */,
+				360560752FAFA6D2002D98C5 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				360560732FAFA6D2002D98C5 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				364BE4222FAF868E0079AA26 /* BalancedPlate */,
@@ -93,6 +186,9 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
+					3605605D2FAFA6D1002D98C5 = {
+						CreatedOnToolsVersion = 26.2;
+					};
 					364BE41F2FAF868E0079AA26 = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -113,11 +209,19 @@
 			projectRoot = "";
 			targets = (
 				364BE41F2FAF868E0079AA26 /* BalancedPlate */,
+				3605605D2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3605605C2FAFA6D1002D98C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		364BE41E2FAF868E0079AA26 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +232,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3605605A2FAFA6D1002D98C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		364BE41C2FAF868E0079AA26 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +248,75 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		360560732FAFA6D2002D98C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3605605D2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension */;
+			targetProxy = 360560722FAFA6D2002D98C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		360560762FAFA6D2002D98C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R383BUUZ83;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BalancedPlateWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BalancedPlateWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.vivaceappstudio.BalancedPlate.BalancedPlateWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		360560772FAFA6D2002D98C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R383BUUZ83;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BalancedPlateWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = BalancedPlateWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fr.vivaceappstudio.BalancedPlate.BalancedPlateWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		364BE42F2FAF868F0079AA26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -330,6 +509,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		360560782FAFA6D2002D98C5 /* Build configuration list for PBXNativeTarget "BalancedPlateWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				360560762FAFA6D2002D98C5 /* Debug */,
+				360560772FAFA6D2002D98C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		364BE41B2FAF868E0079AA26 /* Build configuration list for PBXProject "BalancedPlate" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -17,29 +17,29 @@ struct ContentView: View {
 struct MainTabView: View {
     var body: some View {
         TabView {
-            Text(String(localized: "dashboard.main.text.title"))
+            DashboardView()
                 .tabItem {
-                    Label("Dashboard", systemImage: "chart.pie.fill")
+                    Label(String(localized: "dashboard.main.text.title"), systemImage: "chart.pie.fill")
                 }
             
-            Text("Library")
+            LibraryView()
                 .tabItem {
-                    Label("Library", systemImage: "books.vertical.fill")
+                    Label(String(localized: "library.main.text.title"), systemImage: "books.vertical.fill")
                 }
             
-            Text("Scan")
+            ScanActionView()
                 .tabItem {
-                    Label("Scan", systemImage: "camera.viewfinder")
+                    Label(String(localized: "scan.main.text.title"), systemImage: "camera.viewfinder")
                 }
             
-            Text("Shopping List")
+            ShoppingListView()
                 .tabItem {
-                    Label("Shopping", systemImage: "cart.fill")
+                    Label(String(localized: "shopping.main.text.title"), systemImage: "cart.fill")
                 }
             
-            Text("Settings")
+            SettingsView()
                 .tabItem {
-                    Label("Settings", systemImage: "gearshape.fill")
+                    Label(String(localized: "settings.main.text.title"), systemImage: "gearshape.fill")
                 }
         }
     }

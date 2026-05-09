@@ -7,6 +7,72 @@
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Dashboard" } }
       }
     },
+    "library.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Library" } }
+      }
+    },
+    "scan.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Scan" } }
+      }
+    },
+    "shopping.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Shopping List" } }
+      }
+    },
+    "settings.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } }
+      }
+    },
+    "dashboard.mosaic.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Nutrient Mosaic" } }
+      }
+    },
+    "dashboard.dailylog.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Today's Meals" } }
+      }
+    },
+    "dashboard.dailylog.text.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "No meals logged yet." } }
+      }
+    },
+    "dashboard.recommendation.text.scarcity_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Fuel Your Wheel" } }
+      }
+    },
+    "dashboard.recommendation.text.scarcity_subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Log a few more meals to get precise recommendations." } }
+      }
+    },
+    "dashboard.recommendation.button.log_staples" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Log Staples" } }
+      }
+    },
+    "dashboard.recommendation.text.rich_title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Bridge Meals" } }
+      }
+    },
     "onboarding.healthfilter.text.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -203,6 +269,42 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Let's Cook!" } }
+      }
+    },
+    "scan.input.button.capture" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Capture" } }
+      }
+    },
+    "scan.input.button.manual" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter Manually" } }
+      }
+    },
+    "scan.manual.text.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "e.g., Romanesco Broccoli" } }
+      }
+    },
+    "scan.manual.button.analyze" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Analyze" } }
+      }
+    },
+    "scan.results.text.identified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Identified: %@" } }
+      }
+    },
+    "scan.results.text.recipes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Recipe Ideas for You" } }
       }
     }
   },
