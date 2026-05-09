@@ -22,20 +22,11 @@ Instead of manual data entry, the app uses computer vision to log food qualitati
 * **Diversity Score:** A visual dashboard (e.g., a "Rainbow Wheel") showing which food groups or micronutrient categories (B-Vitamins, Fat-Soluble Vitamins, Minerals) have been covered over the last 7 days.
 
 ### B. The "Gap Filler" (Recommendation Engine)
-The app analyzes your "Diversity Score" to identify what is missing from your diet.
-* **Weekly Aggregate Analysis:** It doesn't nag you daily. On a set day, it identifies gaps (e.g., "You haven't had much Zinc this week").
-* **Bridge Meal Suggestions:** Recommends specific recipes to "bridge the gap" between your current state and your nutritional goals.
-* **Configurable Household Logic:** * Adjusts ingredient quantities for different household sizes (Single, Couple, Family of 4).
-    * Scales shopping lists for specific durations (e.g., 1 week vs. 2 weeks).
+* **Weekly Aggregate Analysis:** Queries HealthKit for the last 7 days of micronutrient data.
+* **Bridge Meal Suggestions:** Uses the **Spoonacular API** or **Edamam** to fetch recipes based on missing nutrients.
 
-### C. The "Store-Side" Assistant (Seasonal & Real-time)
-A feature for spontaneous shoppers who want to eat fresh.
-* **Seasonality Awareness:** Based on your location, the app highlights what is currently "at its peak" (and therefore highest in nutrients).
-* **Scan-to-Recipe:** See a vegetable (e.g., Romanesco broccoli), snap a photo, and the app suggests 3 recipes that:
-    1.  Use that ingredient.
-    2.  Fill your current nutritional gaps.
-    3.  Match your taste preferences and allergies.
-* **Dynamic Shopping List:** Once a recipe is selected, the app adds only the *missing* ingredients to your list, assuming you have basic pantry staples.
+### C. The "Store-Side" Assistant
+* **Scan-to-Recipe:** Mobile-first feature using the camera to trigger immediate recipe ideas based on seasonal availability.
 
 ---
 
@@ -47,11 +38,40 @@ A feature for spontaneous shoppers who want to eat fresh.
 ---
 
 ## 4. Technical Considerations (The "Precision" Logic)
-The app uses a **Coefficient of Loss** model instead of raw numbers:
-* **Vitamin C ($C_6H_8O_6$):** Logic accounts for rapid oxidation. If a salad is logged 2 hours after a "pre-cut" purchase, the nutrient weight is automatically de-rated.
-* **Cooking Impact:** Logic applies a percentage reduction to heat-sensitive nutrients (B-vitamins, C) while potentially increasing the bioavailability of others (like Lycopene in tomatoes).
+The app uses a **Coefficient of Loss** model ($L$):
+* **Base Value ($V_b$):** Sourced from Nutrition NLP APIs using "average household sizes" (e.g., "1 medium bell pepper").
+* **Final Value ($V_f$):** Calculated as $V_f = V_b \times L_{prep} \times L_{time}$
+    * $L_{prep}$: Cooking method (Steamed: 0.9, Boiled: 0.6).
+    * $L_{time}$: Time since prep (Fresh: 1.0, 1h+ Pre-cut: 0.7).
 
 ---
 
-## 5. Version History
-* **v1.0.0:** Initial concept focusing on visual tracking, gap-filling recommendations, and seasonal store-side assistance.
+## 5. iOS System Architecture & Data Flow
+
+To ensure doability and privacy, the app follows this flow:
+
+### 1. Input Layer (The "What")
+* **Vision:** `Vision Framework` + `CoreML` identifies objects in the frame.
+* **NLP Processing:** The identified strings (e.g., "3 Carrots") are sent to the **Edamam Nutrition Analysis API**. 
+    * *Why:* This converts "Natural Language" into structured nutrient JSON without requiring gram inputs from the user.
+
+### 2. Logic Layer (The "How")
+* **Nutrient Adjustment:** A custom Swift service applies the "Coefficient of Loss" logic to the JSON response.
+* **HealthKit Integration:** The adjusted data is written to `HKHealthStore` using `HKQuantityTypeIdentifier` (e.g., `.dietaryVitaminC`).
+
+### 3. Intelligence Layer (The "Why")
+* **Gap Analysis:** The app performs an `HKSampleQuery` to fetch the user's weekly nutrient totals.
+* **Recommendation:** If $Total < Threshold$, the app triggers a `GET` request to a recipe API with the filter `minVitaminC=X`.
+
+| Component | Technology | Role |
+| :--- | :--- | :--- |
+| **API** | Edamam / Nutritionix | Converts "1 Apple" to nutrient JSON. |
+| **Storage** | Apple HealthKit | Centralized nutrient database (Private & Secure). |
+| **Search** | Spoonacular API | Finds recipes by missing micronutrients. |
+| **Location** | CoreLocation | Determines seasonality based on climate zone. |
+
+---
+
+## 6. Version History
+* **v1.0.0:** Initial concept.
+* **v1.1.0:** Added iOS Technical Flow, HealthKit integration, and NLP logic for gram-free tracking.
