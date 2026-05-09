@@ -25,7 +25,7 @@ struct HouseholdSizeView: View {
                         .font(.title2)
                 }
                 .padding()
-                .background(Color.surfaceColor)
+                .background(Color.surface)
                 .cornerRadius(16)
             }
             .padding(.horizontal, 32)

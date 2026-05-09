@@ -46,7 +46,7 @@ struct RecommendationEngineView: View {
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(Color.surfaceColor)
+                    .background(Color.surface)
                     .cornerRadius(12)
                     .shadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2)
                 }

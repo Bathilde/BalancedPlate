@@ -51,6 +51,13 @@
 			);
 			target = 3605605D2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension */;
 		};
+		360560B22FAFB256002D98C5 /* Exceptions for "BalancedPlate" folder in "BalancedPlateWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Core/Storage/Models.swift,
+			);
+			target = 3605605D2FAFA6D1002D98C5 /* BalancedPlateWidgetExtension */;
+		};
 		364BE42D2FAF868F0079AA26 /* Exceptions for "BalancedPlate" folder in "BalancedPlate" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -73,6 +80,7 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				364BE42D2FAF868F0079AA26 /* Exceptions for "BalancedPlate" folder in "BalancedPlate" target */,
+				360560B22FAFB256002D98C5 /* Exceptions for "BalancedPlate" folder in "BalancedPlateWidgetExtension" target */,
 			);
 			path = BalancedPlate;
 			sourceTree = "<group>";

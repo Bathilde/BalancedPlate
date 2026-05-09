@@ -1,389 +1,799 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "dashboard.main.text.title" : {
-      "extractionState" : "manual",
+    "" : {
+
+    },
+    "%.1f %@" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dashboard" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$.1f %2$@"
+          }
+        }
       }
     },
-    "library.main.text.title" : {
-      "extractionState" : "manual",
+    "%lld" : {
+
+    },
+    "%lld ingredients" : {
+
+    },
+    "%lld ingredients • Yields %lld" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Library" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld ingredients • Yields %2$lld"
+          }
+        }
       }
     },
-    "scan.main.text.title" : {
-      "extractionState" : "manual",
+    "%lld selected" : {
+
+    },
+    "• %lld %@ %@" : {
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Scan" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "• %1$lld %2$@ %3$@"
+          }
+        }
       }
     },
-    "shopping.main.text.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Shopping List" } }
-      }
+    "All ingredients are in your pantry!" : {
+
     },
-    "settings.main.text.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Settings" } }
-      }
+    "Analyzing..." : {
+
     },
-    "dashboard.mosaic.text.title" : {
+    "Cancel" : {
+
+    },
+    "dashboard.dailylog.text.empty" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Nutrient Mosaic" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No meals logged yet."
+          }
+        }
       }
     },
     "dashboard.dailylog.text.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Today's Meals" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Today's Meals"
+          }
+        }
       }
     },
-    "dashboard.dailylog.text.empty" : {
+    "dashboard.main.text.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "No meals logged yet." } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dashboard"
+          }
+        }
       }
     },
-    "dashboard.recommendation.text.scarcity_title" : {
+    "dashboard.mosaic.text.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Fuel Your Wheel" } }
-      }
-    },
-    "dashboard.recommendation.text.scarcity_subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Log a few more meals to get precise recommendations." } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nutrient Mosaic"
+          }
+        }
       }
     },
     "dashboard.recommendation.button.log_staples" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Log Staples" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log Staples"
+          }
+        }
       }
     },
     "dashboard.recommendation.text.rich_title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Bridge Meals" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bridge Meals"
+          }
+        }
       }
     },
-    "onboarding.healthfilter.text.title" : {
+    "dashboard.recommendation.text.scarcity_subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Health Filter" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log a few more meals to get precise recommendations."
+          }
+        }
       }
     },
-    "onboarding.healthfilter.text.subtitle" : {
+    "dashboard.recommendation.text.scarcity_title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Any allergies or dietary restrictions?" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fuel Your Wheel"
+          }
+        }
       }
     },
-    "onboarding.healthfilter.text.diet" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Diet" } }
-      }
+    "Deficiency Focus" : {
+
     },
-    "onboarding.healthfilter.text.allergies" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Allergies" } }
-      }
+    "Deficiency Focus Picker Placeholder" : {
+
     },
-    "onboarding.healthfilter.button.next" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
-      }
+    "Diet" : {
+
     },
-    "onboarding.goalsetter.text.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your Goals" } }
-      }
+    "Health Profile" : {
+
     },
-    "onboarding.goalsetter.text.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "What brings you here today?" } }
-      }
+    "Ingredients" : {
+
     },
-    "onboarding.goalsetter.text.lackofenergy" : {
+    "library.main.text.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Lack of Energy" } }
-      }
-    },
-    "onboarding.goalsetter.text.bonehealth" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Bone Health" } }
-      }
-    },
-    "onboarding.goalsetter.text.anemia" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Anemia" } }
-      }
-    },
-    "onboarding.goalsetter.text.poorimmunity" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Poor Immunity" } }
-      }
-    },
-    "onboarding.goalsetter.button.next" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
-      }
-    },
-    "onboarding.pantrysetup.text.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pantry Staples" } }
-      }
-    },
-    "onboarding.pantrysetup.text.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "What do you already have?" } }
-      }
-    },
-    "onboarding.pantrysetup.button.next" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
-      }
-    },
-    "onboarding.habitprerecord.text.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your Habits" } }
-      }
-    },
-    "onboarding.habitprerecord.text.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Select meals you eat often." } }
-      }
-    },
-    "onboarding.habitprerecord.button.next" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
-      }
-    },
-    "onboarding.householdsize.text.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Household" } }
-      }
-    },
-    "onboarding.householdsize.text.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Who are we cooking for?" } }
-      }
-    },
-    "onboarding.householdsize.text.people" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "People" } }
-      }
-    },
-    "onboarding.householdsize.button.next" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
-      }
-    },
-    "onboarding.mealrhythm.text.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Meal Rhythm" } }
-      }
-    },
-    "onboarding.mealrhythm.text.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "When do you usually eat?" } }
-      }
-    },
-    "onboarding.mealrhythm.text.breakfast" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Breakfast" } }
-      }
-    },
-    "onboarding.mealrhythm.text.lunch" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Lunch" } }
-      }
-    },
-    "onboarding.mealrhythm.text.dinner" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dinner" } }
-      }
-    },
-    "onboarding.mealrhythm.button.next" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Find My First Meal" } }
-      }
-    },
-    "onboarding.successreveal.text.title" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your First Bridge Meal" } }
-      }
-    },
-    "onboarding.successreveal.text.subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Based on your goals and pantry, we recommend:" } }
-      }
-    },
-    "onboarding.successreveal.text.ingredients" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Ingredients" } }
-      }
-    },
-    "onboarding.successreveal.text.error" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Could not load your meal." } }
-      }
-    },
-    "onboarding.successreveal.button.finish" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Let's Cook!" } }
-      }
-    },
-    "scan.input.button.capture" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Capture" } }
-      }
-    },
-    "scan.input.button.manual" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Enter Manually" } }
-      }
-    },
-    "scan.manual.text.placeholder" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "e.g., Romanesco Broccoli" } }
-      }
-    },
-    "scan.manual.button.analyze" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Analyze" } }
-      }
-    },
-    "scan.results.text.identified" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Identified: %@" } }
-      }
-    },
-    "scan.results.text.recipes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Recipe Ideas for You" } }
-      }
-    },
-    "shopping.viewmode.global" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Global" } }
-      }
-    },
-    "shopping.viewmode.mealbymeal" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "By Meal" } }
-      }
-    },
-    "shopping.filter.hidepantry" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Hide Pantry Items" } }
-      }
-    },
-    "shopping.filter.showpantry" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Show Pantry Items" } }
-      }
-    },
-    "shopping.empty.text" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your shopping list is empty. Add some Bridge Meals!" } }
-      }
-    },
-    "library.picker.recipes" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Saved Recipes" } }
-      }
-    },
-    "library.picker.pantry" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "My Pantry" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Library"
+          }
+        }
       }
     },
     "library.pantry.instock" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "In Stock" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Stock"
+          }
+        }
       }
     },
     "library.pantry.outstock" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Out of Stock" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Out of Stock"
+          }
+        }
       }
+    },
+    "library.picker.pantry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Pantry"
+          }
+        }
+      }
+    },
+    "library.picker.recipes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saved Recipes"
+          }
+        }
+      }
+    },
+    "Metric" : {
+
+    },
+    "onboarding.goalsetter.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "onboarding.goalsetter.text.anemia" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anemia"
+          }
+        }
+      }
+    },
+    "onboarding.goalsetter.text.bonehealth" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bone Health"
+          }
+        }
+      }
+    },
+    "onboarding.goalsetter.text.lackofenergy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lack of Energy"
+          }
+        }
+      }
+    },
+    "onboarding.goalsetter.text.poorimmunity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poor Immunity"
+          }
+        }
+      }
+    },
+    "onboarding.goalsetter.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What brings you here today?"
+          }
+        }
+      }
+    },
+    "onboarding.goalsetter.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Goals"
+          }
+        }
+      }
+    },
+    "onboarding.habitprerecord.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "onboarding.habitprerecord.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select meals you eat often."
+          }
+        }
+      }
+    },
+    "onboarding.habitprerecord.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your Habits"
+          }
+        }
+      }
+    },
+    "onboarding.healthfilter.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "onboarding.healthfilter.text.allergies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allergies"
+          }
+        }
+      }
+    },
+    "onboarding.healthfilter.text.diet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diet"
+          }
+        }
+      }
+    },
+    "onboarding.healthfilter.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Any allergies or dietary restrictions?"
+          }
+        }
+      }
+    },
+    "onboarding.healthfilter.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Health Filter"
+          }
+        }
+      }
+    },
+    "onboarding.householdsize.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "onboarding.householdsize.text.people" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "People"
+          }
+        }
+      }
+    },
+    "onboarding.householdsize.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Who are we cooking for?"
+          }
+        }
+      }
+    },
+    "onboarding.householdsize.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Household"
+          }
+        }
+      }
+    },
+    "onboarding.mealrhythm.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find My First Meal"
+          }
+        }
+      }
+    },
+    "onboarding.mealrhythm.text.breakfast" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breakfast"
+          }
+        }
+      }
+    },
+    "onboarding.mealrhythm.text.dinner" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dinner"
+          }
+        }
+      }
+    },
+    "onboarding.mealrhythm.text.lunch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lunch"
+          }
+        }
+      }
+    },
+    "onboarding.mealrhythm.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "When do you usually eat?"
+          }
+        }
+      }
+    },
+    "onboarding.mealrhythm.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meal Rhythm"
+          }
+        }
+      }
+    },
+    "onboarding.pantrysetup.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "onboarding.pantrysetup.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "What do you already have?"
+          }
+        }
+      }
+    },
+    "onboarding.pantrysetup.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pantry Staples"
+          }
+        }
+      }
+    },
+    "onboarding.successreveal.button.finish" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Let's Cook!"
+          }
+        }
+      }
+    },
+    "onboarding.successreveal.text.error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not load your meal."
+          }
+        }
+      }
+    },
+    "onboarding.successreveal.text.ingredients" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingredients"
+          }
+        }
+      }
+    },
+    "onboarding.successreveal.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Based on your goals and pantry, we recommend:"
+          }
+        }
+      }
+    },
+    "onboarding.successreveal.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your First Bridge Meal"
+          }
+        }
+      }
+    },
+    "Point at an ingredient" : {
+
     },
     "recipe.button.log" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Log This Meal" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log This Meal"
+          }
+        }
       }
     },
-    "settings.section.preferences" : {
+    "scan.input.button.capture" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Preferences" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capture"
+          }
+        }
       }
     },
-    "settings.unitsystem" : {
+    "scan.input.button.manual" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unit System" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter Manually"
+          }
+        }
+      }
+    },
+    "scan.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scan"
+          }
+        }
+      }
+    },
+    "scan.manual.button.analyze" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Analyze"
+          }
+        }
+      }
+    },
+    "scan.manual.text.placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "e.g., Romanesco Broccoli"
+          }
+        }
+      }
+    },
+    "scan.results.text.identified" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identified: %@"
+          }
+        }
+      }
+    },
+    "scan.results.text.recipes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recipe Ideas for You"
+          }
+        }
       }
     },
     "settings.householdsize" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : { "stringUnit" : { "state" : "translated", "value" : "Household Size" } }
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Household Size"
+          }
+        }
       }
+    },
+    "settings.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "settings.section.preferences" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preferences"
+          }
+        }
+      }
+    },
+    "settings.unitsystem" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unit System"
+          }
+        }
+      }
+    },
+    "shopping.empty.text" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your shopping list is empty. Add some Bridge Meals!"
+          }
+        }
+      }
+    },
+    "shopping.filter.hidepantry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hide Pantry Items"
+          }
+        }
+      }
+    },
+    "shopping.filter.showpantry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Pantry Items"
+          }
+        }
+      }
+    },
+    "shopping.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shopping List"
+          }
+        }
+      }
+    },
+    "shopping.viewmode.global" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Global"
+          }
+        }
+      }
+    },
+    "shopping.viewmode.mealbymeal" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "By Meal"
+          }
+        }
+      }
+    },
+    "UK Imperial" : {
+
+    },
+    "Unknown Meal" : {
+
+    },
+    "US Imperial" : {
+
+    },
+    "View Mode" : {
+
+    },
+    "What do you want to cook with?" : {
+
+    },
+    "Yields %lld servings" : {
+
     }
   },
   "version" : "1.0"

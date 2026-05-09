@@ -31,7 +31,7 @@ struct GoalSetterView: View {
                             }
                             .frame(maxWidth: .infinity, minHeight: 100)
                             .padding()
-                            .background(viewModel.selectedSymptoms.contains(symptom) ? Color.accentColor.opacity(0.2) : Color.surfaceColor)
+                            .background(viewModel.selectedSymptoms.contains(symptom) ? Color.accentColor.opacity(0.2) : Color.surface)
                             .overlay(
                                 RoundedRectangle(cornerRadius: 16)
                                     .stroke(viewModel.selectedSymptoms.contains(symptom) ? Color.accentColor : Color.gray.opacity(0.2), lineWidth: 2)

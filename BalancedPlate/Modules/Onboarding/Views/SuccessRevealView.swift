@@ -37,7 +37,7 @@ struct SuccessRevealView: View {
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.surfaceColor)
+                .background(Color.surface)
                 .cornerRadius(16)
                 .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
                 
@@ -71,7 +71,7 @@ struct SuccessRevealView: View {
             householdSize: viewModel.householdSize,
             deficiencyFocus: Array(viewModel.selectedSymptoms).flatMap {
                 switch $0 {
-                case .lackOfEnergy: return [.b12, .iron]
+                case .lackOfEnergy: return [Nutrient.b12, .iron]
                 case .boneHealth: return [.calcium, .vitaminD]
                 case .anemia: return [.iron]
                 case .poorImmunity: return [.zinc, .vitaminC]

@@ -1,12 +1,5 @@
 import SwiftUI
 
-// MARK: - Colors
-extension Color {
-    static let primaryBackground = Color("PrimaryBackground")
-    static let surfaceColor = Color("SurfaceColor")
-    // Note: Use Color.accentColor for the main accent.
-}
-
 // MARK: - Button Styles
 struct PrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -28,7 +21,7 @@ struct SecondaryButtonStyle: ButtonStyle {
             .font(.headline)
             .frame(maxWidth: .infinity)
             .padding()
-            .background(Color.surfaceColor)
+            .background(Color.surface)
             .foregroundColor(.primary)
             .clipShape(Capsule())
             .overlay(
@@ -45,7 +38,7 @@ struct CardModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding()
-            .background(Color.surfaceColor)
+            .background(Color.surface)
             .cornerRadius(16)
             .shadow(color: Color.black.opacity(0.05), radius: 8, x: 0, y: 4)
     }

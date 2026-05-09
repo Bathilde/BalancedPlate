@@ -37,7 +37,7 @@ struct HealthFilterView: View {
                         Text(allergy)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(viewModel.allergies.contains(allergy) ? Color.accentColor : Color.surfaceColor)
+                            .background(viewModel.allergies.contains(allergy) ? Color.accentColor : Color.surface)
                             .foregroundColor(viewModel.allergies.contains(allergy) ? .white : .primary)
                             .clipShape(Capsule())
                             .overlay(

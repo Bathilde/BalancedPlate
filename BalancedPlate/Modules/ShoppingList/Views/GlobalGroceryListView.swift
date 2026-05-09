@@ -46,7 +46,7 @@ struct GlobalGroceryListView: View {
                                     .padding(.leading, 8)
                             }
                             .padding()
-                            .background(Color.surfaceColor)
+                            .background(Color.surface)
                             .cornerRadius(12)
                             .opacity(isChecked ? 0.6 : 1.0)
                         }

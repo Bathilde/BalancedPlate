@@ -22,7 +22,7 @@ struct MealRhythmView: View {
                         .labelsHidden()
                 }
                 .padding()
-                .background(Color.surfaceColor)
+                .background(Color.surface)
                 .cornerRadius(12)
                 
                 HStack {
@@ -33,7 +33,7 @@ struct MealRhythmView: View {
                         .labelsHidden()
                 }
                 .padding()
-                .background(Color.surfaceColor)
+                .background(Color.surface)
                 .cornerRadius(12)
                 
                 HStack {
@@ -44,7 +44,7 @@ struct MealRhythmView: View {
                         .labelsHidden()
                 }
                 .padding()
-                .background(Color.surfaceColor)
+                .background(Color.surface)
                 .cornerRadius(12)
             }
             .padding(.vertical)

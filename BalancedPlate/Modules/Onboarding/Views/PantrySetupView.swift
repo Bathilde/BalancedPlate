@@ -34,7 +34,7 @@ struct PantrySetupView: View {
                                 }
                             }
                             .padding()
-                            .background(Color.surfaceColor)
+                            .background(Color.surface)
                             .cornerRadius(12)
                         }
                     }
