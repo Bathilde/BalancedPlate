@@ -1,61 +1,74 @@
-//
-//  ContentView.swift
-//  BalancedPlate
-//
-//  Created by Bathilde Rocchia on 09/05/2026.
-//
-
 import SwiftUI
 import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    @Query private var userSettings: [UserSetting]
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-        } detail: {
-            Text("Select an item")
+        if userSettings.isEmpty {
+            OnboardingPlaceholderView()
+        } else {
+            MainTabView()
         }
     }
+}
 
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+struct OnboardingPlaceholderView: View {
+    @Environment(\.modelContext) private var modelContext
+    
+    var body: some View {
+        VStack(spacing: 24) {
+            Text(String(localized: "onboarding.welcome.text.title"))
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            
+            Button {
+                let initialSetting = UserSetting()
+                modelContext.insert(initialSetting)
+            } label: {
+                Text(String(localized: "onboarding.welcome.button.start"))
             }
+            .buttonStyle(PrimaryButtonStyle())
+            .padding(.horizontal)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.primaryBackground)
+    }
+}
+
+struct MainTabView: View {
+    var body: some View {
+        TabView {
+            Text(String(localized: "dashboard.main.text.title"))
+                .tabItem {
+                    Label("Dashboard", systemImage: "chart.pie.fill")
+                }
+            
+            Text("Library")
+                .tabItem {
+                    Label("Library", systemImage: "books.vertical.fill")
+                }
+            
+            Text("Scan")
+                .tabItem {
+                    Label("Scan", systemImage: "camera.viewfinder")
+                }
+            
+            Text("Shopping List")
+                .tabItem {
+                    Label("Shopping", systemImage: "cart.fill")
+                }
+            
+            Text("Settings")
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape.fill")
+                }
         }
     }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+        .modelContainer(for: [UserSetting.self, Meal.self, Recipe.self, Ingredient.self, PantryItem.self], inMemory: true)
 }

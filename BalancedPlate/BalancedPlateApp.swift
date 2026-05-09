@@ -1,10 +1,3 @@
-//
-//  BalancedPlateApp.swift
-//  BalancedPlate
-//
-//  Created by Bathilde Rocchia on 09/05/2026.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -12,7 +5,11 @@ import SwiftData
 struct BalancedPlateApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            UserSetting.self,
+            Meal.self,
+            Recipe.self,
+            Ingredient.self,
+            PantryItem.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
