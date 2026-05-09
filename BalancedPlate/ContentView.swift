@@ -7,33 +7,10 @@ struct ContentView: View {
 
     var body: some View {
         if userSettings.isEmpty {
-            OnboardingPlaceholderView()
+            OnboardingRootView()
         } else {
             MainTabView()
         }
-    }
-}
-
-struct OnboardingPlaceholderView: View {
-    @Environment(\.modelContext) private var modelContext
-    
-    var body: some View {
-        VStack(spacing: 24) {
-            Text(String(localized: "onboarding.welcome.text.title"))
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            Button {
-                let initialSetting = UserSetting()
-                modelContext.insert(initialSetting)
-            } label: {
-                Text(String(localized: "onboarding.welcome.button.start"))
-            }
-            .buttonStyle(PrimaryButtonStyle())
-            .padding(.horizontal)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.primaryBackground)
     }
 }
 

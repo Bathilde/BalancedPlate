@@ -4,34 +4,205 @@
     "dashboard.main.text.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dashboard"
-          }
-        }
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dashboard" } }
       }
     },
-    "onboarding.welcome.text.title" : {
+    "onboarding.healthfilter.text.title" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Welcome to Balanced Plate"
-          }
-        }
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Health Filter" } }
       }
     },
-    "onboarding.welcome.button.start" : {
+    "onboarding.healthfilter.text.subtitle" : {
       "extractionState" : "manual",
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Get Started"
-          }
-        }
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Any allergies or dietary restrictions?" } }
+      }
+    },
+    "onboarding.healthfilter.text.diet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Diet" } }
+      }
+    },
+    "onboarding.healthfilter.text.allergies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Allergies" } }
+      }
+    },
+    "onboarding.healthfilter.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
+      }
+    },
+    "onboarding.goalsetter.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your Goals" } }
+      }
+    },
+    "onboarding.goalsetter.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "What brings you here today?" } }
+      }
+    },
+    "onboarding.goalsetter.text.lackofenergy" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Lack of Energy" } }
+      }
+    },
+    "onboarding.goalsetter.text.bonehealth" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Bone Health" } }
+      }
+    },
+    "onboarding.goalsetter.text.anemia" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Anemia" } }
+      }
+    },
+    "onboarding.goalsetter.text.poorimmunity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Poor Immunity" } }
+      }
+    },
+    "onboarding.goalsetter.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
+      }
+    },
+    "onboarding.pantrysetup.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Pantry Staples" } }
+      }
+    },
+    "onboarding.pantrysetup.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "What do you already have?" } }
+      }
+    },
+    "onboarding.pantrysetup.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
+      }
+    },
+    "onboarding.habitprerecord.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your Habits" } }
+      }
+    },
+    "onboarding.habitprerecord.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Select meals you eat often." } }
+      }
+    },
+    "onboarding.habitprerecord.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
+      }
+    },
+    "onboarding.householdsize.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Household" } }
+      }
+    },
+    "onboarding.householdsize.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Who are we cooking for?" } }
+      }
+    },
+    "onboarding.householdsize.text.people" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "People" } }
+      }
+    },
+    "onboarding.householdsize.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Next" } }
+      }
+    },
+    "onboarding.mealrhythm.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Meal Rhythm" } }
+      }
+    },
+    "onboarding.mealrhythm.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "When do you usually eat?" } }
+      }
+    },
+    "onboarding.mealrhythm.text.breakfast" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Breakfast" } }
+      }
+    },
+    "onboarding.mealrhythm.text.lunch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Lunch" } }
+      }
+    },
+    "onboarding.mealrhythm.text.dinner" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Dinner" } }
+      }
+    },
+    "onboarding.mealrhythm.button.next" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Find My First Meal" } }
+      }
+    },
+    "onboarding.successreveal.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Your First Bridge Meal" } }
+      }
+    },
+    "onboarding.successreveal.text.subtitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Based on your goals and pantry, we recommend:" } }
+      }
+    },
+    "onboarding.successreveal.text.ingredients" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Ingredients" } }
+      }
+    },
+    "onboarding.successreveal.text.error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Could not load your meal." } }
+      }
+    },
+    "onboarding.successreveal.button.finish" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Let's Cook!" } }
       }
     }
   },

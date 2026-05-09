@@ -1,0 +1,27 @@
+[
+  {
+    "id": "habit_1",
+    "name": "Oatmeal with Berries",
+    "type": "Breakfast"
+  },
+  {
+    "id": "habit_2",
+    "name": "Two Eggs & Toast",
+    "type": "Breakfast"
+  },
+  {
+    "id": "habit_3",
+    "name": "Avocado Toast",
+    "type": "Breakfast"
+  },
+  {
+    "id": "habit_4",
+    "name": "Chicken Salad",
+    "type": "Lunch"
+  },
+  {
+    "id": "habit_5",
+    "name": "Leftovers",
+    "type": "Lunch"
+  }
+]
