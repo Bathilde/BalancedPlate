@@ -336,6 +336,54 @@
       "localizations" : {
         "en" : { "stringUnit" : { "state" : "translated", "value" : "Your shopping list is empty. Add some Bridge Meals!" } }
       }
+    },
+    "library.picker.recipes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Saved Recipes" } }
+      }
+    },
+    "library.picker.pantry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "My Pantry" } }
+      }
+    },
+    "library.pantry.instock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "In Stock" } }
+      }
+    },
+    "library.pantry.outstock" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Out of Stock" } }
+      }
+    },
+    "recipe.button.log" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Log This Meal" } }
+      }
+    },
+    "settings.section.preferences" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Preferences" } }
+      }
+    },
+    "settings.unitsystem" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Unit System" } }
+      }
+    },
+    "settings.householdsize" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : { "stringUnit" : { "state" : "translated", "value" : "Household Size" } }
+      }
     }
   },
   "version" : "1.0"
