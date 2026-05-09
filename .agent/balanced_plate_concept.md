@@ -18,9 +18,8 @@ Most nutrition apps fail by demanding "laboratory precision" (weighing food in g
 To avoid a cluttered UI, we replace the "busy wheel" with a "Nutrient Mosaic" or "Dynamic Bars".
 * **The Mosaic View:** A grid of colored tiles. Larger tiles represent your "Deficiency Focus" (e.g., Iron). The tile fills with color as you eat variety. It’s "glanceable" rather than "precise."
 * **The Status Widget:** A Home Screen widget showing the Top 3 Nutrients for the day and a "Log Last Meal" shortcut button.
-* **Daily Log View:** Integrated directly under the Mosaic for immediate access to today’s data.
+* **Daily Log View:** Integrated directly under the Mosaic for immediate access to today’s data. It features a scrollable list of the **Current Day's Meals** separated by meal type (Breakfast, Lunch, Dinner). The app uses time-awareness based on user-configured reminders to know the current meal context. Includes a primary "Scan Meal" button and a secondary "Add Manually" button to add items.
 * **Search Fallback:** A "Quick Add" text field using NLP (Edamam) for when the camera cannot identify a complex meal or the user is logging after the fact.
-* **Daily Log View:** A scrollable list of the **Current Day's Meals** for quick review, editing, or "Save as Recipe" promotion.
 * **Conditional Recommendation Engine (72h Window):**
     * **Data Scarcity (< 5 meals logged):** Displays "Fuel Your Wheel"—a list of favorite ingredients or high-density staples to encourage logging.
     * **Data Rich (≥ 5 meals logged):** Displays "Bridge Meals"—3 specific Spoonacular recipes that fill the identified nutrient gaps.
@@ -54,6 +53,7 @@ To avoid a cluttered UI, we replace the "busy wheel" with a "Nutrient Mosaic" or
 * **Global List:** Consolidated view (e.g., "750g Tomatoes" or "1.5 lbs Tomatoes").
 * **Meal-by-Meal View:** Ingredients grouped by recipe.
 * **User Control:** Users can tap an ingredient to toggle its unit manually if they prefer to buy "1 bag" instead of "500g."
+* **Navigation & Actions:** The navigation bar is kept clean without complex filter buttons. A "Scan Ingredient" button is anchored at the bottom of the view to quickly find recipe inspiration based on items found in-store.
 
 ### F. Smart Onboarding Flow
 A 4-step guided setup to initialize the SwiftData user profile and the Recommendation Engine.
@@ -106,13 +106,12 @@ To ensure the "User Success Loop," notifications are treated as helpful nudges r
 ---
 
 ## 4. App Structure & Navigation (iOS Tab Bar)
-The app follows standard iOS patterns with a 4-tab system and a central Action Button.
+The app follows standard iOS patterns with a 4-tab system.
 
 1.  **Dashboard:** Rainbow Wheel, Today's Meals, and the Recommendation Engine.
 2.  **Library:** Central hub for **Pantry**, **Saved Recipes**, and **Discovery Lab**.
-3.  **[CENTER SCAN BUTTON]:** Universal camera trigger. Toggle between "Meal Log" and "Grocery Scan-to-Recipe."
-4.  **Shopping List:** Toggle between Global and Meal-based views.
-5.  **Settings:** **Deficiency Focus**, **Allergies & Tastes**, and Household scaling logic.
+3.  **Shopping List:** Toggle between Global and Meal-based views.
+4.  **Settings:** **Deficiency Focus**, **Allergies & Tastes**, and Household scaling logic.
 
 ---
 
@@ -174,3 +173,4 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 * **v1.7.0:** Added Smart Onboarding Flow with Symptom Mapping and Immediate Success (First Bridge Meal).
 * **v1.8.0:** Added Search Fallback, Smart Merging for shopping lists.
 * **v1.9.0:** Replaced "Wheel" with Nutrient Mosaic; Added User Success Loop, Home Screen Widgets, and Smart Notification Rhythm.
+* **v1.10.0:** Updated Tab Bar to 4 items, enhanced Daily Log View with meal types and actions, refined Shopping List actions.

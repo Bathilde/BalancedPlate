@@ -43,6 +43,9 @@
         }
       }
     },
+    "Add Manually" : {
+
+    },
     "All ingredients are in your pantry!" : {
 
     },
@@ -50,6 +53,9 @@
 
     },
     "Cancel" : {
+
+    },
+    "Current" : {
 
     },
     "dashboard.dailylog.text.empty" : {
@@ -211,6 +217,9 @@
       }
     },
     "Metric" : {
+
+    },
+    "No meals logged" : {
 
     },
     "onboarding.goalsetter.button.next" : {
@@ -589,6 +598,12 @@
           }
         }
       }
+    },
+    "Scan Ingredient" : {
+
+    },
+    "Scan Meal" : {
+
     },
     "scan.input.button.capture" : {
       "extractionState" : "manual",

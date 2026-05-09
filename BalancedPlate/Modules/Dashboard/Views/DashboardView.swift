@@ -12,11 +12,11 @@ struct DashboardView: View {
                 VStack(spacing: 24) {
                     if let setting = userSettings.first {
                         NutrientMosaicView(fills: viewModel.mosaicFills, focus: setting.deficiencyFocus)
+                        DailyLogView(mealsByType: viewModel.mealsByType, currentMealType: viewModel.currentMealType(for: setting))
                     } else {
                         NutrientMosaicView(fills: viewModel.mosaicFills, focus: [])
+                        DailyLogView(mealsByType: viewModel.mealsByType, currentMealType: .snack)
                     }
-                    
-                    DailyLogView(meals: viewModel.loggedMeals)
                     
                     RecommendationEngineView(isScarcityMode: viewModel.isScarcityMode, bridgeMeals: viewModel.bridgeMeals)
                 }

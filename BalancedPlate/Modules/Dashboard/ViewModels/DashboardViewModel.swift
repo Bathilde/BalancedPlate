@@ -6,8 +6,38 @@ import Observation
 final class DashboardViewModel {
     var loggedMeals: [Meal] = []
     var bridgeMeals: [Recipe] = []
+    
+    var mealsByType: [MealType: [Meal]] {
+        Dictionary(grouping: loggedMeals, by: { $0.mealType })
+    }
+    
     var isScarcityMode: Bool {
         return loggedMeals.count < 5
+    }
+    
+    func currentMealType(for settings: UserSetting) -> MealType {
+        let now = Date()
+        let calendar = Calendar.current
+        
+        func dateForToday(from date: Date) -> Date {
+            let components = calendar.dateComponents([.hour, .minute], from: date)
+            return calendar.date(bySettingHour: components.hour ?? 0, minute: components.minute ?? 0, second: 0, of: now) ?? now
+        }
+        
+        let todayBreakfast = dateForToday(from: settings.breakfastTime)
+        let todayLunch = dateForToday(from: settings.lunchTime)
+        let todayDinner = dateForToday(from: settings.dinnerTime)
+        
+        let breakfastToLunchMid = todayBreakfast.addingTimeInterval(todayLunch.timeIntervalSince(todayBreakfast) / 2)
+        let lunchToDinnerMid = todayLunch.addingTimeInterval(todayDinner.timeIntervalSince(todayLunch) / 2)
+        
+        if now < breakfastToLunchMid {
+            return .breakfast
+        } else if now < lunchToDinnerMid {
+            return .lunch
+        } else {
+            return .dinner
+        }
     }
     
     // Mock Data for Mosaic Fill (0.0 to 1.0)
@@ -38,10 +68,10 @@ final class DashboardViewModel {
                 self.loggedMeals = [
                     Meal(timestamp: Date().addingTimeInterval(-3600), ingredients: [
                         Ingredient(name: "Apple", rawInputUnit: "1", standardizedWeightGrams: 100, displayAmount: 1, displayUnit: "medium")
-                    ]),
+                    ], mealType: .breakfast),
                     Meal(timestamp: Date().addingTimeInterval(-7200), ingredients: [
                         Ingredient(name: "Chicken", rawInputUnit: "1", standardizedWeightGrams: 200, displayAmount: 1, displayUnit: "breast")
-                    ])
+                    ], mealType: .lunch)
                 ]
             }
             

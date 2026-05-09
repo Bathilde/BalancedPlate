@@ -25,6 +25,13 @@ enum Symptom: String, Codable {
     case poorImmunity
 }
 
+enum MealType: String, Codable, CaseIterable {
+    case breakfast
+    case lunch
+    case dinner
+    case snack
+}
+
 // MARK: - Models
 
 @Model
@@ -33,6 +40,10 @@ final class UserSetting {
     var householdSize: Int = 1
     var deficiencyFocusRaw: [String] = []
     var symptomsRaw: [String] = []
+    
+    var breakfastTime: Date = Calendar.current.date(from: DateComponents(hour: 8, minute: 0)) ?? Date()
+    var lunchTime: Date = Calendar.current.date(from: DateComponents(hour: 12, minute: 30)) ?? Date()
+    var dinnerTime: Date = Calendar.current.date(from: DateComponents(hour: 19, minute: 0)) ?? Date()
     
     var preferredUnitSystem: UnitSystem {
         get { UnitSystem(rawValue: preferredUnitSystemRaw) ?? .metric }
@@ -49,11 +60,14 @@ final class UserSetting {
         set { symptomsRaw = newValue.map { $0.rawValue } }
     }
     
-    init(preferredUnitSystem: UnitSystem = .metric, householdSize: Int = 1, deficiencyFocus: [Nutrient] = [], symptoms: [Symptom] = []) {
+    init(preferredUnitSystem: UnitSystem = .metric, householdSize: Int = 1, deficiencyFocus: [Nutrient] = [], symptoms: [Symptom] = [], breakfastTime: Date? = nil, lunchTime: Date? = nil, dinnerTime: Date? = nil) {
         self.preferredUnitSystemRaw = preferredUnitSystem.rawValue
         self.householdSize = householdSize
         self.deficiencyFocusRaw = deficiencyFocus.map { $0.rawValue }
         self.symptomsRaw = symptoms.map { $0.rawValue }
+        if let breakfastTime { self.breakfastTime = breakfastTime }
+        if let lunchTime { self.lunchTime = lunchTime }
+        if let dinnerTime { self.dinnerTime = dinnerTime }
     }
 }
 
@@ -83,12 +97,19 @@ final class Meal {
     var isFavorite: Bool
     var photoData: Data?
     var ingredients: [Ingredient]
+    var typeRaw: String = MealType.snack.rawValue
     
-    init(timestamp: Date = Date(), isFavorite: Bool = false, photoData: Data? = nil, ingredients: [Ingredient] = []) {
+    var mealType: MealType {
+        get { MealType(rawValue: typeRaw) ?? .snack }
+        set { typeRaw = newValue.rawValue }
+    }
+    
+    init(timestamp: Date = Date(), isFavorite: Bool = false, photoData: Data? = nil, ingredients: [Ingredient] = [], mealType: MealType = .snack) {
         self.timestamp = timestamp
         self.isFavorite = isFavorite
         self.photoData = photoData
         self.ingredients = ingredients
+        self.typeRaw = mealType.rawValue
     }
 }
 

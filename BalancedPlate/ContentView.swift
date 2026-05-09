@@ -27,11 +27,7 @@ struct MainTabView: View {
                     Label(String(localized: "library.main.text.title"), systemImage: "books.vertical.fill")
                 }
             
-            ScanActionView()
-                .tabItem {
-                    Label(String(localized: "scan.main.text.title"), systemImage: "camera.viewfinder")
-                }
-            
+
             ShoppingListView()
                 .tabItem {
                     Label(String(localized: "shopping.main.text.title"), systemImage: "cart.fill")

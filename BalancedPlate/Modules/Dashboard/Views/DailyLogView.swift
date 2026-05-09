@@ -1,28 +1,89 @@
 import SwiftUI
 
 struct DailyLogView: View {
-    let meals: [Meal]
+    let mealsByType: [MealType: [Meal]]
+    let currentMealType: MealType
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 20) {
             Text(String(localized: "dashboard.dailylog.text.title"))
                 .font(.headline)
                 .padding(.horizontal)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 16) {
-                    if meals.isEmpty {
-                        Text(String(localized: "dashboard.dailylog.text.empty"))
-                            .foregroundColor(.secondary)
-                            .padding()
-                            .cardStyle()
-                    } else {
+            ForEach([MealType.breakfast, .lunch, .dinner], id: \.self) { mealType in
+                MealTypeSection(
+                    title: mealType.rawValue.capitalized,
+                    meals: mealsByType[mealType] ?? [],
+                    isCurrentMeal: mealType == currentMealType
+                )
+            }
+        }
+    }
+}
+
+struct MealTypeSection: View {
+    let title: String
+    let meals: [Meal]
+    let isCurrentMeal: Bool
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                Text(title)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                
+                if isCurrentMeal {
+                    Text("Current")
+                        .font(.caption)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Color.accentColor.opacity(0.2))
+                        .foregroundColor(.accentColor)
+                        .clipShape(Capsule())
+                }
+            }
+            .padding(.horizontal)
+            
+            if !meals.isEmpty {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 16) {
                         ForEach(meals) { meal in
                             MealCard(meal: meal)
                         }
                     }
+                    .padding(.horizontal)
+                }
+            } else {
+                Text("No meals logged")
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                    .padding(.horizontal)
+            }
+            
+            if isCurrentMeal {
+                HStack(spacing: 12) {
+                    Button(action: {
+                        // Scan action
+                    }) {
+                        Label("Scan Meal", systemImage: "camera.viewfinder")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.accentColor)
+                    
+                    Button(action: {
+                        // Add manually
+                    }) {
+                        Label("Add Manually", systemImage: "pencil")
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 8)
+                    }
+                    .buttonStyle(.bordered)
                 }
                 .padding(.horizontal)
+                .padding(.top, 4)
             }
         }
     }

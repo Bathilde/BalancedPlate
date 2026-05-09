@@ -22,19 +22,22 @@ struct ShoppingListView: View {
                     } else {
                         MealByMealGroceryListView(viewModel: viewModel)
                     }
+                    
+                    Button(action: {
+                        // Scan ingredient action
+                    }) {
+                        Label("Scan Ingredient", systemImage: "barcode.viewfinder")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.accentColor)
+                    .padding()
                 }
             }
             .navigationTitle(String(localized: "shopping.main.text.title"))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        viewModel.hidePantryItems.toggle()
-                    } label: {
-                        Image(systemName: viewModel.hidePantryItems ? "line.3.horizontal.decrease.circle.fill" : "line.3.horizontal.decrease.circle")
-                            .foregroundColor(.accentColor)
-                    }
-                }
-            }
+
             .onAppear {
                 viewModel.loadData(context: modelContext)
             }
