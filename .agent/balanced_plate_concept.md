@@ -14,9 +14,12 @@ Most nutrition apps fail by demanding "laboratory precision" (weighing food in g
 
 ## 2. Feature Specification
 
-### A. Nutrient Assistance (The Dashboard)
-The primary entry point, providing immediate feedback and planning.
-* **The "Rainbow Wheel":** Visual representation of micronutrient coverage over a rolling 7-day window.
+### A. The Dashboard: Beyond the Wheel
+To avoid a cluttered UI, we replace the "busy wheel" with a "Nutrient Mosaic" or "Dynamic Bars".
+* **The Mosaic View:** A grid of colored tiles. Larger tiles represent your "Deficiency Focus" (e.g., Iron). The tile fills with color as you eat variety. It’s "glanceable" rather than "precise."
+* **The Status Widget:** A Home Screen widget showing the Top 3 Nutrients for the day and a "Log Last Meal" shortcut button.
+* **Daily Log View:** Integrated directly under the Mosaic for immediate access to today’s data.
+* **Search Fallback:** A "Quick Add" text field using NLP (Edamam) for when the camera cannot identify a complex meal or the user is logging after the fact.
 * **Daily Log View:** A scrollable list of the **Current Day's Meals** for quick review, editing, or "Save as Recipe" promotion.
 * **Conditional Recommendation Engine (72h Window):**
     * **Data Scarcity (< 5 meals logged):** Displays "Fuel Your Wheel"—a list of favorite ingredients or high-density staples to encourage logging.
@@ -34,6 +37,7 @@ The primary entry point, providing immediate feedback and planning.
     * **Metric:** Grams, Kilograms, Milliliters, Liters.
     * **Imperial/US:** Cups, Ounces, Pounds, Teaspoons/Tablespoons.
 **Density-Aware Conversion:** Uses API data to ensure that "1 cup" is converted to the correct weight in grams based on the specific ingredient (e.g., Lead vs. Feathers logic).
+* **Smart Merging:** When generating the Global List, the app attempts to merge identical ingredients using the Unit Manager. (e.g., "200g Spinach" + "100g Spinach" = "300g Spinach").
 
 ### C. The "Store-Side" Assistant (In-Scan Action)
 * **Scan-to-Recipe:** Snapshot a vegetable in-store (e.g., Romanesco broccoli). The app triggers recipe ideas that:
@@ -73,9 +77,19 @@ A curated list of "Pantry Staples." Users tap to check off items they already ow
 #### 5. Household Size
 * **Onboarding ends by asking:** "Who are we cooking for?" (1, 2, or 4+ people).
 
-#### 6. The "Success" Screen (The Result)
+#### 6. Meal Time Rhythm
+* **Onboarding "Rhythm" Setup:** During onboarding, users define their typical meal times (Breakfast, Lunch, Dinner).
+
+#### 7. The "Success" Screen (The Result)
 * **The "First Bridge" Reveal:** The app displays: "Based on your feeling (Tired) and your Pantry (Eggs, Spinach), here is your first Bridge Meal: The 5-Minute Power Omelette."
 * **Action:** Buttons to "Cook This Now" (Log it) or "Add Ingredients to Shopping List."
+
+### H. The Notification & Reminder Engine
+To ensure the "User Success Loop," notifications are treated as helpful nudges rather than spam.
+
+* **Onboarding "Rhythm" Setup:** During onboarding, users define their typical meal times (Breakfast, Lunch, Dinner).
+* **Smart Reminders:** Notifications triggered 30 minutes after a scheduled meal time if no log has been made.
+* **Weekly Wins:** A Sunday morning notification summarizing the "Nutrient Diversity" of the week with a "Success Badge."
 
 ---
 
@@ -85,6 +99,9 @@ A curated list of "Pantry Staples." Users tap to check off items they already ow
 * **Allergies & Tastes:** Strict exclusion of allergens and a "like/dislike" weighting for automated suggestions.
 * **Localized Defaults:** The app automatically detects the iOS locale to set Unit Systems (Metric vs. Imperial) and Currency. No user input is required unless they wish to override in Settings.
 * **Household Scaling:** Onboarding ends by asking: "Who are we cooking for?" (1, 2, or 4+ people).
+* **Notification Toggles:** Granular control over meal reminders and weekly analysis.
+* **Terms & Privacy:** Standard legal links for MVP compliance.
+* **App Review Trigger:** The "Rate Us" prompt is only triggered after a "Success Moment" (e.g., completing the 72h log or checking off a full "Bridge Meal" shopping list).
 
 ---
 
@@ -99,7 +116,15 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 
 ---
 
-## 5. iOS System Architecture & Data Flow (Dual-Storage Model)
+## 5. The User Success Loop (The Habit Flywheel)
+* **Trigger:** Smart Notification (Meal time) or Widget glance.
+* **Action:** "Quick-Log" from favorites or a 2-second Photo Scan.
+* **Variable Reward:** Visual "fill" of the Mosaic tiles + Haptic feedback.
+* **Investment:** "Meal-to-Recipe Promotion" or adding a "Bridge Meal" to the shopping list for the weekend.
+
+---
+
+## 6. iOS System Architecture & Data Flow (Dual-Storage Model)
 
 ### 1. Input Layer
 * **Vision:** `Vision Framework` + `CoreML` identifies objects locally.
@@ -120,9 +145,12 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 * **Step 6 (Success):** The app triggers an immediate POST to the Spoonacular API using the `includeIngredients` (from Pantry) and `targetNutrients` (from Symptoms) parameters.
 * **Storage:** This first "Bridge Meal" is saved to the `Discovery Lab` so the user doesn't lose it.
 
+### 5. Notification Logic
+* **Local Notifications:** MVP uses UserNotifications framework to schedule reminders locally based on the user's "Rhythm" settings, avoiding the need for a push server.
+
 ---
 
-## 6. Data Model (SwiftData Schema)
+## 7. Data Model (SwiftData Schema)
 
 | Entity | Attributes |
 | :--- | :--- |
@@ -135,7 +163,7 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 
 ---
 
-## 7. Version History
+## 8. Version History
 * **v1.0.0:** Initial concept.
 * **v1.1.0:** Added iOS Technical Flow, HealthKit integration, and NLP logic for gram-free tracking.
 * **v1.2.0:** Updated architecture to a Dual-Storage model using **SwiftData** as the primary persistence layer.
@@ -144,3 +172,5 @@ The app follows standard iOS patterns with a 4-tab system and a central Action B
 * **v1.5.0:** Restored Recipe Promotion, Scan-to-Recipe, and Scaling logic; Refined Dashboard (<5 / ≥5 rule).
 * **v1.6.0:** Added Global Unit Localization and Density-Aware Conversion to handle Metric/Imperial differences.
 * **v1.7.0:** Added Smart Onboarding Flow with Symptom Mapping and Immediate Success (First Bridge Meal).
+* **v1.8.0:** Added Search Fallback, Smart Merging for shopping lists.
+* **v1.9.0:** Replaced "Wheel" with Nutrient Mosaic; Added User Success Loop, Home Screen Widgets, and Smart Notification Rhythm.
