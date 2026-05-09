@@ -16,6 +16,18 @@ enum Nutrient: String, Codable {
     case magnesium
     case zinc
     case vitaminC
+    
+    var displayName: String {
+        switch self {
+        case .iron: return "Iron"
+        case .vitaminD: return "Vit D"
+        case .b12: return "B12"
+        case .calcium: return "Ca"
+        case .magnesium: return "Mg"
+        case .zinc: return "Zinc"
+        case .vitaminC: return "Vit C"
+        }
+    }
 }
 
 enum Symptom: String, Codable {
@@ -40,6 +52,12 @@ final class UserSetting {
     var householdSize: Int = 1
     var deficiencyFocusRaw: [String] = []
     var symptomsRaw: [String] = []
+    var favoriteNutrientsRaw: [String] = []
+    
+    var favoriteNutrients: [Nutrient] {
+        get { favoriteNutrientsRaw.compactMap { Nutrient(rawValue: $0) } }
+        set { favoriteNutrientsRaw = newValue.map { $0.rawValue } }
+    }
     
     var breakfastTime: Date = Calendar.current.date(from: DateComponents(hour: 8, minute: 0)) ?? Date()
     var lunchTime: Date = Calendar.current.date(from: DateComponents(hour: 12, minute: 30)) ?? Date()
@@ -60,11 +78,12 @@ final class UserSetting {
         set { symptomsRaw = newValue.map { $0.rawValue } }
     }
     
-    init(preferredUnitSystem: UnitSystem = .metric, householdSize: Int = 1, deficiencyFocus: [Nutrient] = [], symptoms: [Symptom] = [], breakfastTime: Date? = nil, lunchTime: Date? = nil, dinnerTime: Date? = nil) {
+    init(preferredUnitSystem: UnitSystem = .metric, householdSize: Int = 1, deficiencyFocus: [Nutrient] = [], symptoms: [Symptom] = [], breakfastTime: Date? = nil, lunchTime: Date? = nil, dinnerTime: Date? = nil, favoriteNutrients: [Nutrient] = []) {
         self.preferredUnitSystemRaw = preferredUnitSystem.rawValue
         self.householdSize = householdSize
         self.deficiencyFocusRaw = deficiencyFocus.map { $0.rawValue }
         self.symptomsRaw = symptoms.map { $0.rawValue }
+        self.favoriteNutrientsRaw = favoriteNutrients.map { $0.rawValue }
         if let breakfastTime { self.breakfastTime = breakfastTime }
         if let lunchTime { self.lunchTime = lunchTime }
         if let dinnerTime { self.dinnerTime = dinnerTime }

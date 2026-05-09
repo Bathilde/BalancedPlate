@@ -33,6 +33,9 @@
     "%lld selected" : {
 
     },
+    "%lld%%" : {
+
+    },
     "• %lld %@ %@" : {
       "localizations" : {
         "en" : {
@@ -98,6 +101,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nutrient Mosaic"
+          }
+        }
+      }
+    },
+    "dashboard.nutrients.text.empty" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No favorites yet. Tap › to add nutrients."
+          }
+        }
+      }
+    },
+    "dashboard.nutrients.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Nutrients"
           }
         }
       }
@@ -221,6 +246,28 @@
     },
     "No meals logged" : {
 
+    },
+    "nutrientdetail.button.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "nutrientdetail.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Nutrients"
+          }
+        }
+      }
     },
     "onboarding.goalsetter.button.next" : {
       "extractionState" : "manual",
@@ -599,6 +646,94 @@
         }
       }
     },
+    "recipebook.button.explore" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explore Recipes"
+          }
+        }
+      }
+    },
+    "recipebook.card.bestfor" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best for"
+          }
+        }
+      }
+    },
+    "recipebook.explore.button.add" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Recipe Book"
+          }
+        }
+      }
+    },
+    "recipebook.explore.button.done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "recipebook.explore.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explore"
+          }
+        }
+      }
+    },
+    "recipebook.main.text.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recipe Book"
+          }
+        }
+      }
+    },
+    "recipebook.picker.pantry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Pantry"
+          }
+        }
+      }
+    },
+    "recipebook.picker.recipes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "My Recipes"
+          }
+        }
+      }
+    },
     "Scan Ingredient" : {
 
     },
@@ -801,11 +936,24 @@
     "US Imperial" : {
 
     },
+    "View all nutrients" : {
+
+    },
     "View Mode" : {
 
     },
     "What do you want to cook with?" : {
 
+    },
+    "Yields %lld serving%@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yields %1$lld serving%2$@"
+          }
+        }
+      }
     },
     "Yields %lld servings" : {
 

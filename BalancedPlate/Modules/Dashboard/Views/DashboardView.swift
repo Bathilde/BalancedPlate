@@ -5,20 +5,33 @@ struct DashboardView: View {
     @State private var viewModel = DashboardViewModel()
     @Environment(\.modelContext) private var modelContext
     @Query private var userSettings: [UserSetting]
-    
+
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 24) {
                     if let setting = userSettings.first {
-                        NutrientMosaicView(fills: viewModel.mosaicFills, focus: setting.deficiencyFocus)
-                        DailyLogView(mealsByType: viewModel.mealsByType, currentMealType: viewModel.currentMealType(for: setting))
+                        NutrientStripView(
+                            fills: viewModel.mosaicFills,
+                            favorites: Bindable(setting).favoriteNutrients
+                        )
+                        DailyLogView(
+                            mealsByType: viewModel.mealsByType,
+                            currentMealType: viewModel.currentMealType(for: setting)
+                        )
                     } else {
-                        NutrientMosaicView(fills: viewModel.mosaicFills, focus: [])
+                        // Empty-state placeholder strip
+                        NutrientStripView(
+                            fills: viewModel.mosaicFills,
+                            favorites: .constant([])
+                        )
                         DailyLogView(mealsByType: viewModel.mealsByType, currentMealType: .snack)
                     }
-                    
-                    RecommendationEngineView(isScarcityMode: viewModel.isScarcityMode, bridgeMeals: viewModel.bridgeMeals)
+
+                    RecommendationEngineView(
+                        isScarcityMode: viewModel.isScarcityMode,
+                        bridgeMeals: viewModel.bridgeMeals
+                    )
                 }
                 .padding(.vertical)
             }

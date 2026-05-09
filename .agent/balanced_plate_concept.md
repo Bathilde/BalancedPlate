@@ -15,10 +15,12 @@ Most nutrition apps fail by demanding "laboratory precision" (weighing food in g
 ## 2. Feature Specification
 
 ### A. The Dashboard: Beyond the Wheel
-To avoid a cluttered UI, we replace the "busy wheel" with a "Nutrient Mosaic" or "Dynamic Bars".
-* **The Mosaic View:** A grid of colored tiles. Larger tiles represent your "Deficiency Focus" (e.g., Iron). The tile fills with color as you eat variety. It’s "glanceable" rather than "precise."
-* **The Status Widget:** A Home Screen widget showing the Top 3 Nutrients for the day and a "Log Last Meal" shortcut button.
-* **Daily Log View:** Integrated directly under the Mosaic for immediate access to today’s data. It features a scrollable list of the **Current Day's Meals** separated by meal type (Breakfast, Lunch, Dinner). The app uses time-awareness based on user-configured reminders to know the current meal context. Includes a primary "Scan Meal" button and a secondary "Add Manually" button to add items.
+To avoid a cluttered UI, we replace the "busy wheel" with a compact **Favorite Nutrients Strip**.
+* **Favorite Nutrients Strip:** Displays only the user’s favorited nutrients (up to ~3–5) as compact dynamic bars. This keeps the Dashboard glanceable and avoids overwhelming the user with all available nutrients at once.
+    * A **right chevron (›)** at the end of the strip opens the full **Nutrient Detail View**, where all available nutrients are listed with their current fill level. Users can toggle any nutrient as a **Favorite** from this view, which updates what appears on the Dashboard.
+* **Onboarding Preset:** During onboarding’s "Goal Setter" step, selecting health concerns (e.g., "Lack of Energy" → B12) automatically pre-selects up to **3 nutrients as Favorites**, giving the Dashboard a meaningful default state from day one.
+* **The Status Widget:** A Home Screen widget showing the Top 3 Favorite Nutrients for the day and a "Log Last Meal" shortcut button.
+* **Daily Log View:** Integrated directly under the Nutrient Strip for immediate access to today’s data. It features a scrollable list of the **Current Day's Meals** separated by meal type (Breakfast, Lunch, Dinner). The app uses time-awareness based on user-configured reminders to know the current meal context. Includes a primary "Scan Meal" button and a secondary "Add Manually" button to add items.
 * **Search Fallback:** A "Quick Add" text field using NLP (Edamam) for when the camera cannot identify a complex meal or the user is logging after the fact.
 * **Conditional Recommendation Engine (72h Window):**
     * **Data Scarcity (< 5 meals logged):** Displays "Fuel Your Wheel"—a list of favorite ingredients or high-density staples to encourage logging.
@@ -55,6 +57,15 @@ To avoid a cluttered UI, we replace the "busy wheel" with a "Nutrient Mosaic" or
 * **User Control:** Users can tap an ingredient to toggle its unit manually if they prefer to buy "1 bag" instead of "500g."
 * **Navigation & Actions:** The navigation bar is kept clean without complex filter buttons. A "Scan Ingredient" button is anchored at the bottom of the view to quickly find recipe inspiration based on items found in-store.
 
+### G. The Recipe Book *(renamed from Library)*
+The Recipe Book is the user's personal culinary hub. It is split into three areas: **Pantry**, **My Recipes**, and **Explore**.
+
+* **My Recipes:** A list of saved recipes, each displayed as a card containing:
+    * Recipe name and thumbnail.
+    * **"Best for"** label followed by 2–3 nutrient tags (e.g., 🟠 Iron · 🟡 B12) derived from the recipe's `nutritionalStrategyTags`. This gives users an at-a-glance understanding of why a recipe is in their book.
+* **Explore Button:** At the bottom of the My Recipes list, an **"Explore"** button opens a discovery screen showing a curated list of recipes from Spoonacular (filtered by the user's allergies and preferences). Users can browse and tap **"Add to Recipe Book"** on any recipe to save it.
+* **Pantry:** The existing pantry management view (staples and in-stock items).
+
 ### F. Smart Onboarding Flow
 A 4-step guided setup to initialize the SwiftData user profile and the Recommendation Engine.
 
@@ -64,7 +75,7 @@ A 4-step guided setup to initialize the SwiftData user profile and the Recommend
 
 #### 2. The "Goal Setter" (Nutrient Focus)
 * **Multi-select list of concerns:** (e.g., "Lack of Energy" → B12, "Bone Health" → Vitamin D/Calcium, "Anemia" → Iron).
-* **Benefit:** This sets the priority weights for the Bridge Meal suggestions.
+* **Benefit:** This sets the priority weights for the Bridge Meal suggestions, and automatically marks up to **3 mapped nutrients as Favorites** so the Dashboard is immediately populated with meaningful data.
 
 #### 3. The "Quick Start" Pantry
 A curated list of "Pantry Staples." Users tap to check off items they already own (Olive oil, Rice, Salt, Flour).
@@ -108,8 +119,8 @@ To ensure the "User Success Loop," notifications are treated as helpful nudges r
 ## 4. App Structure & Navigation (iOS Tab Bar)
 The app follows standard iOS patterns with a 4-tab system.
 
-1.  **Dashboard:** Rainbow Wheel, Today's Meals, and the Recommendation Engine.
-2.  **Library:** Central hub for **Pantry**, **Saved Recipes**, and **Discovery Lab**.
+1.  **Dashboard:** Favorite Nutrients Strip, Today's Meals, and the Recommendation Engine.
+2.  **Recipe Book** *(formerly "Library"):* Central hub for **Pantry**, **Saved Recipes**, and **Discovery Lab**. See Section G below for details.
 3.  **Shopping List:** Toggle between Global and Meal-based views.
 4.  **Settings:** **Deficiency Focus**, **Allergies & Tastes**, and Household scaling logic.
 
@@ -174,3 +185,4 @@ The app follows standard iOS patterns with a 4-tab system.
 * **v1.8.0:** Added Search Fallback, Smart Merging for shopping lists.
 * **v1.9.0:** Replaced "Wheel" with Nutrient Mosaic; Added User Success Loop, Home Screen Widgets, and Smart Notification Rhythm.
 * **v1.10.0:** Updated Tab Bar to 4 items, enhanced Daily Log View with meal types and actions, refined Shopping List actions.
+* **v1.11.0:** Replaced Nutrient Mosaic with compact Favorite Nutrients Strip; added Nutrient Detail View with favorites toggle; onboarding presets 3 favorites from goal selection; renamed Library to Recipe Book; added "Best for" nutrient tags and Explore button to Recipe Book.

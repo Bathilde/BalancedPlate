@@ -22,9 +22,9 @@ struct MainTabView: View {
                     Label(String(localized: "dashboard.main.text.title"), systemImage: "chart.pie.fill")
                 }
             
-            LibraryView()
+            RecipeBookView()
                 .tabItem {
-                    Label(String(localized: "library.main.text.title"), systemImage: "books.vertical.fill")
+                    Label(String(localized: "recipebook.main.text.title"), systemImage: "book.closed.fill")
                 }
             
 

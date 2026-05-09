@@ -66,18 +66,24 @@ struct SuccessRevealView: View {
     }
     
     private func saveUserSetting() {
+        let focus: [Nutrient] = Array(viewModel.selectedSymptoms).flatMap {
+            switch $0 {
+            case .lackOfEnergy: return [Nutrient.b12, .iron]
+            case .boneHealth: return [.calcium, .vitaminD]
+            case .anemia: return [.iron]
+            case .poorImmunity: return [.zinc, .vitaminC]
+            }
+        }
+        var seen = Set<Nutrient>()
+        let uniqueFocus = focus.filter { seen.insert($0).inserted }
+        let favorites = Array(uniqueFocus.prefix(3))
+        
         let setting = UserSetting(
-            preferredUnitSystem: .metric, // default
+            preferredUnitSystem: .metric,
             householdSize: viewModel.householdSize,
-            deficiencyFocus: Array(viewModel.selectedSymptoms).flatMap {
-                switch $0 {
-                case .lackOfEnergy: return [Nutrient.b12, .iron]
-                case .boneHealth: return [.calcium, .vitaminD]
-                case .anemia: return [.iron]
-                case .poorImmunity: return [.zinc, .vitaminC]
-                }
-            },
-            symptoms: Array(viewModel.selectedSymptoms)
+            deficiencyFocus: uniqueFocus,
+            symptoms: Array(viewModel.selectedSymptoms),
+            favoriteNutrients: favorites
         )
         modelContext.insert(setting)
     }
