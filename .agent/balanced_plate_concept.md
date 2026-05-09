@@ -19,11 +19,11 @@ Instead of manual data entry, the app uses computer vision to log food qualitati
     * *Raw/Freshly Cut* (High Vitamin Retention)
     * *Cooked/Steamed* (Moderate Retention)
     * *Processed/Pre-packaged* (Low Retention)
-* **Diversity Score:** A visual dashboard (e.g., a "Rainbow Wheel") showing which food groups or micronutrient categories (B-Vitamins, Fat-Soluble Vitamins, Minerals) have been covered over the last 7 days.
+* **Diversity Score:** A visual dashboard (e.g., a "Rainbow Wheel") showing which food groups or micronutrient categories (B-Vitamins, Fat-Soluble Vitamins, Minerals) have been covered over the last 7 days. Fueled by SwiftData with optional HealthKit syncing.
 
 ### B. The "Gap Filler" (Recommendation Engine)
-* **Weekly Aggregate Analysis:** Queries HealthKit for the last 7 days of micronutrient data.
-* **Bridge Meal Suggestions:** Uses the **Spoonacular API** or **Edamam** to fetch recipes based on missing nutrients.
+* **Weekly Aggregate Analysis:** Queries the local **SwiftData** store to calculate nutritional trends over the last 7 days.
+* **Bridge Meal Suggestions:** Uses recipe APIs (Edamam/Spoonacular) to fetch meals based on identified gaps.
 
 ### C. The "Store-Side" Assistant
 * **Scan-to-Recipe:** Mobile-first feature using the camera to trigger immediate recipe ideas based on seasonal availability.
@@ -46,32 +46,44 @@ The app uses a **Coefficient of Loss** model ($L$):
 
 ---
 
-## 5. iOS System Architecture & Data Flow
+## 5. iOS System Architecture & Data Flow (Dual-Storage Model)
 
-To ensure doability and privacy, the app follows this flow:
+The app utilizes a local-first approach to ensure reliability and performance, regardless of external permission states.
 
 ### 1. Input Layer (The "What")
-* **Vision:** `Vision Framework` + `CoreML` identifies objects in the frame.
-* **NLP Processing:** The identified strings (e.g., "3 Carrots") are sent to the **Edamam Nutrition Analysis API**. 
-    * *Why:* This converts "Natural Language" into structured nutrient JSON without requiring gram inputs from the user.
+* **Vision:** `Vision Framework` + `CoreML` identifies objects in the frame (e.g., "Spinach").
+* **NLP Processing:** Identified strings and quantities (e.g., "1 bunch of spinach") are sent to the **Edamam Nutrition Analysis API**.
+    * *Why:* This converts "Natural Language" into structured nutrient JSON without requiring gram inputs.
 
 ### 2. Logic Layer (The "How")
-* **Nutrient Adjustment:** A custom Swift service applies the "Coefficient of Loss" logic to the JSON response.
-* **HealthKit Integration:** The adjusted data is written to `HKHealthStore` using `HKQuantityTypeIdentifier` (e.g., `.dietaryVitaminC`).
+* **Nutrient Adjustment:** A custom Swift service applies the "Coefficient of Loss" logic to the API's base nutrient data.
+* **Local Persistence (SwiftData):** The primary save occurs here. All meals and adjusted nutrients are stored in the app's private SQLite database.
+* **HealthKit Integration (Optional):** If authorized, the app mirrors the adjusted data to `HKHealthStore`. This acts as a secondary sync for the broader iOS ecosystem.
 
 ### 3. Intelligence Layer (The "Why")
-* **Gap Analysis:** The app performs an `HKSampleQuery` to fetch the user's weekly nutrient totals.
-* **Recommendation:** If $Total < Threshold$, the app triggers a `GET` request to a recipe API with the filter `minVitaminC=X`.
+* **Gap Analysis:** The app queries the **SwiftData** store for the last 7 days of logs to calculate the "Diversity Score" and nutritional trends.
+* **Recommendation:** If a deficiency is detected (e.g., Vitamin B12 is below the user's set threshold), the app triggers a `GET` request to the **Spoonacular API** with specific nutrient filters to find "Bridge Meals."
 
 | Component | Technology | Role |
 | :--- | :--- | :--- |
 | **API** | Edamam / Nutritionix | Converts "1 Apple" to nutrient JSON. |
-| **Storage** | Apple HealthKit | Centralized nutrient database (Private & Secure). |
-| **Search** | Spoonacular API | Finds recipes by missing micronutrients. |
-| **Location** | CoreLocation | Determines seasonality based on climate zone. |
+| **Primary Storage** | **SwiftData** | Local "Source of Truth" for all user food logs and metrics. |
+| **Secondary Sync** | Apple HealthKit | Optional export for integration with Apple Health. |
+| **Search** | Spoonacular API | Finds recipes based on missing micronutrients. |
+| **Location** | CoreLocation | Determines seasonality for the "Store-Side" assistant. |
 
 ---
 
-## 6. Version History
+## 6. Data Model (SwiftData Schema)
+To assist implementation, here is the conceptual schema:
+
+* **Meal Model:** Contains Date, PhotoData, PreparationMethod, and a relationship to Ingredients.
+* **Ingredient Model:** Contains Name, QuantityDescriptor (e.g., "1 cup"), and a NutrientProfile.
+* **NutrientProfile Model:** Stores key micronutrients (Iron, B12, Vit C, etc.) after the Coefficient of Loss has been applied.
+
+---
+
+## 7. Version History
 * **v1.0.0:** Initial concept.
 * **v1.1.0:** Added iOS Technical Flow, HealthKit integration, and NLP logic for gram-free tracking.
+* **v1.2.0:** Updated architecture to a Dual-Storage model using **SwiftData** as the primary persistence layer.
